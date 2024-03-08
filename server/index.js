@@ -19,12 +19,11 @@ app.listen(5000, () => {
 
 
 /*
-NOTA: Lanza el servicio desde la terminal (estando dentro de la carpeta service) con el comando nodemon index 
-*/ 
-
+NOTA 1 : Lanza el servicio desde la terminal (estando dentro de la carpeta service) con el comando nodemon index 
+*/
 
 /* 
-NOTA: Lo siguiente era como lo hacía antes, pero no lo vamos a hacer así porque no es modular 
+NOTA 2: Lo siguiente era como lo hacía antes, pero no lo vamos a hacer así porque no es modular 
 ya que todo lo hace en un solo lugar: Obtención de datos de la api,
 envío de los datos obtenidos a la base de datos, obtención de la respuesta de la base de
 datos
