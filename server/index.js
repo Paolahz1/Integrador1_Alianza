@@ -17,7 +17,10 @@ app.listen(5000, () => {
     console.log("server has started on port 5000")
 }); 
 
+/*
 
+Prueba 1 para el git push 
+*/
 /*
 NOTA 01 : Lanza el servicio desde la terminal (estando dentro de la carpeta service) con el comando nodemon index 
 */
