@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const todosRouter = require ("../server/src/routers/todos.routers"); 
 const userRouter = require("../server/src/routers/user.routers");
+const usuariosRouter = require ("../server/src/routers/usuarios.routers");
 
 //middleware
 app.use(cors('*'));
@@ -11,6 +12,11 @@ app.use(express.json());
 //ROUTES//
 app.use("/todos", todosRouter);
 app.use("/user", userRouter);
+app.use ("/usuario", usuariosRouter);
+
+
+// http://localhost:5000/
+
 
 
 app.listen(5000, () => {
@@ -18,7 +24,6 @@ app.listen(5000, () => {
 }); 
 
 /*
-
 Prueba 1 para el git push 
 */
 /*
