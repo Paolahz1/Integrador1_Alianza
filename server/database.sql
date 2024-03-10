@@ -1,21 +1,20 @@
-CREATE DATABASE perntodo;
+INSERT INTO usuarios (nombre, identificacion, numero_identificacion, nombre_usuario, contrasena_hash) VALUES 
+('Juan Perez', 'DNI', '12345678X', 'juanperez', 'hash_de_la_contrasena1'),
+('Ana Gómez', 'Pasaporte', 'AB123456C', 'anagomez', 'hash_de_la_contrasena2'),
+('Luis Martínez', 'DNI', '87654321Z', 'luismartinez', 'hash_de_la_contrasena3');
 
-CREATE TABLE todo (
-    todo_id SERIAL PRIMARY KEY,
-    description VARCHAR (255)
-);
-
-
--- Definición de la función
-CREATE OR REPLACE FUNCTION obtenerTodosLosDatos(nombre_tabla VARCHAR)
-RETURNS SETOF RECORD AS
-$$
+CREATE OR REPLACE FUNCTION  usuarioExiste (user_id VARCHAR)
+RETURNS INT
+LANGUAGE plpgsql
+AS $$
 BEGIN
-    -- Construir la consulta dinámicamente y retornar los resultados
-    RETURN QUERY EXECUTE format('SELECT * FROM %I', nombre_tabla);
+    -- Verificar si el usuario existe
+    IF EXISTS (SELECT 1 FROM usuarios WHERE numero_identificacion = user_id) THEN
+        RETURN  1; -- Usuario encontrado y
+    ELSE
+        RETURN 0; -- Usuario no encontrado
+    END IF;
 END;
-$$
-LANGUAGE plpgsql;
+$$;
 
-
-SELECT * FROM obtenerTodosLosDatos('todo') AS (col1 integer, col2 VARCHAR);
+SELECT usuarioExiste ('1234567X') as resultado;
