@@ -13,11 +13,9 @@ async function updateTodos(description) {
         console.error(error.message);
         return null;
     }
-
 }
 
 async function getTodos (){
-
     try {
         const allTodos = await pool.query
         ('SELECT * FROM todo');
@@ -25,10 +23,7 @@ async function getTodos (){
     } catch (error) {
         console.error(error.messaWge);
     }
-
 }
-
-
 
 module.exports = {
     updateTodos,

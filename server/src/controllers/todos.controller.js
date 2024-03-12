@@ -3,8 +3,7 @@ const todoServices = require("../services/todo.services.js")
 
 exports.todos = async (req, res) =>
 
-{
-    
+{    
     const {description} = req.body;
     const resUpdate  = await todoServices.updateTodos(description); 
     console.log("Respuesta en servidor " , resUpdate);
@@ -12,9 +11,7 @@ exports.todos = async (req, res) =>
     return res.status(404).json("No se pudo realizar el update");
     } 
     res.status(200).json(resUpdate);
-
 }
-
 
 exports.todosGet = async (req, res) => {
 
