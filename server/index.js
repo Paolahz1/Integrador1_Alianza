@@ -4,10 +4,12 @@ const cors = require("cors");
 const todosRouter = require ("../server/src/routers/todos.routers"); 
 const userRouter = require("../server/src/routers/user.routers");
 const usuariosRouter = require ("../server/src/routers/usuarios.routers");
+const pool = require("../server/src/providers/db.js")
 
 //middleware
 app.use(cors('*'));
 app.use(express.json());
+
 
 //ROUTES//
 app.use("/todos", todosRouter);

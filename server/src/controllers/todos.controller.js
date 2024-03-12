@@ -1,4 +1,4 @@
-const {updateTodos, getTodos} = require("../services/todo.services")
+const todoServices = require("../services/todo.services.js")
 
 
 exports.todos = async (req, res) =>
@@ -6,9 +6,8 @@ exports.todos = async (req, res) =>
 {
     
     const {description} = req.body;
-    const resUpdate  = await updateTodos(description); 
-
-    console.log(resUpdate);
+    const resUpdate  = await todoServices.updateTodos(description); 
+    console.log("Respuesta en servidor " , resUpdate);
     if (!resUpdate){
     return res.status(404).json("No se pudo realizar el update");
     } 
@@ -19,7 +18,7 @@ exports.todos = async (req, res) =>
 
 exports.todosGet = async (req, res) => {
 
-    const resGetTodos = await getTodos ();  
+    const resGetTodos = await todoServices.getTodos ();  
     console.log( resGetTodos);
     if (!resGetTodos){
         return res.status(404).json("No se pudo obtener la información");
