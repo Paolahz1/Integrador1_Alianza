@@ -1,17 +1,22 @@
-import React, {Fragment} from "react";
+import React from "react";
 import "./App.css";
+import RegistroCliente from "./pages/RegistroCliente";
 
 //Components
 
-import InputTodo from './components/InputTodo';
+
+import Login from "./pages/Login";
 
 function App() {
-  return <Fragment>
-      <div className="container">
-      <InputTodo />
-      </div>
-    </Fragment>;
-
+  return (
+    <div className="container">
+        <RegistroCliente/>
+    </div>
+  );
 }
+      
+{/*   
+          <Login />
+*/}
 
 export default App;
