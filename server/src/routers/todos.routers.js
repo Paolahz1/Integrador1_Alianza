@@ -1,10 +1,10 @@
 const Router = require("express"); 
 const router = Router();
-const { todos, todosGet } = require('../controllers/todos.controller')
+const todoControllers = require('../controllers/todos.controller')
 
 router 
-    .post ('/', todos)
-    .get('/obtener/facil', todosGet)
+    .post ('/', todoControllers.todos)
+    .get('/obtener/facil', todoControllers.todosGet)
 
 module.exports = router;
 

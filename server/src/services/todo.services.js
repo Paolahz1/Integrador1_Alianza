@@ -23,10 +23,15 @@ async function getTodos (){
         ('SELECT * FROM todo');
         return allTodos.rows
     } catch (error) {
-        console.error(error.message);
+        console.error(error.messaWge);
     }
 
 }
 
-module.exports = {updateTodos};
-module.exports = {getTodos};
+
+
+module.exports = {
+    updateTodos,
+    getTodos,
+};
+
