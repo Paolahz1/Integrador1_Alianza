@@ -1,22 +1,27 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css";
-import RegistroCliente from "./pages/RegistroCliente";
+import Login from './pages/Login';
+import RegistroCliente from './pages/RegistroCliente';
+import Modal from "./components/Modal";
 
-//Components
-
-
-import Login from "./pages/Login";
 
 function App() {
   return (
-    <div className="container">
-        <RegistroCliente/>
-    </div>
+    <Router>
+        <Routes>
+
+          <Route index element={<Modal />} />
+            <Route  path="/" element={<Login />} />
+          
+          <Route path="/registro" element={<RegistroCliente />}/>
+      </Routes>
+    </Router>
   );
 }
-      
+
 {/*   
-          <Login />
+<RegistroCliente/>       
 */}
 
 export default App;
