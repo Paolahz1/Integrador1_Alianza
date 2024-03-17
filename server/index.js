@@ -14,7 +14,7 @@ app.use(express.json());
 //ROUTES//
 app.use("/todos", todosRouter);
 app.use("/user", userRouter);
-app.use ("/usuario", usuariosRouter);
+app.use ("/usuarios", usuariosRouter);
 
 
 // http://localhost:5000/
