@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
     MDBBtn,
     MDBContainer,
@@ -14,22 +15,22 @@ const Login = () => {
 
     const [loginData, SetLogingData] = useState({
         username : "",
-        password : ''
+        password : ""
     }); 
 
 const handleChange = (e) => {
+    const {name, value} = e.target;
+
     SetLogingData ({
         ...loginData,
-        [e.target.name]: e.target.value
+        [name]: value.trim()
     });
 };
 
 const onSubmitForm = async (e) => {
     e.preventDefault();
-
-        console.log(loginData);
     try {
-        const response = await fetch('http://localhost:5000/usuario/registro', {
+        const response = await fetch('http://localhost:5000/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
@@ -54,25 +55,25 @@ return (
         <MDBRow>
 
         <MDBCol col='10' md='6'>
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" />
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
         </MDBCol>
 
         <MDBCol md='5'>
             <MDBCardBody className='d-flex flex-column'>
             
-            <form nSubmit={onSubmitForm}>
+            <form onSubmit={onSubmitForm}>
 
                 <div className="text-center">
                     <h3 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Ingresa a tu cuenta</h3>
                 </div>
                 
-                <MDBInput wrapperClass='mb-4' label='Nombre de usuario' id='nombreUsuario' type='text' size="lg" name ="username" value = {loginData.username} onChange={handleChange} />
-                <MDBInput wrapperClass='mb-4' label='Contaseña' id='password' type='password' size="lg" name='password' value={loginData.password} onChange={handleChange}/>
+                <MDBInput wrapperClass='mb-4' label='Nombre de usuario' id='username' type='text' size="lg" name ="username" value = {loginData.username} onChange={handleChange} required/>
+                <MDBInput wrapperClass='mb-4' label='Contaseña' id='password' type='password' size="lg" name='password' value={loginData.password} onChange={handleChange} required/>
                 
                 <MDBBtn type="submit" className="mb-4 w-100" size="lg">Ingresar</MDBBtn>
 
                 <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>¿No tienes un cuenta?
-                    <a href="#!" style={{color: '#393f81'}}>Registrate aquí</a>
+                    <Link to="/registro" style={{color: '#393f81'}}>Registrate aquí</Link>
                 </p>
 
             </form> 
