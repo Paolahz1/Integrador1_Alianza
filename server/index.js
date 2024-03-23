@@ -2,24 +2,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const todosRouter = require ("../server/src/routers/todos.routers"); 
-const userRouter = require("../server/src/routers/user.routers");
 const usuariosRouter = require ("../server/src/routers/usuarios.routers");
+const productosRouter = require ("../server/src/routers/productos.routers.js")
+const empresasRouter = require ("../server/src/routers/empresas.routers.js")
 const pool = require("../server/src/providers/db.js")
 
 //middleware
 app.use(cors('*'));
 app.use(express.json());
 
-
 //ROUTES//
 app.use("/todos", todosRouter);
-app.use("/user", userRouter);
 app.use ("/usuarios", usuariosRouter);
+app.use ("/productos", productosRouter);
+app.use ("/empresas", empresasRouter );
 
-
-// http://localhost:5000/
-
-
+// http://localhost:5000/productos/
 
 app.listen(5000, () => {
     console.log("server has started on port 5000")
@@ -41,6 +39,23 @@ datos
 Lo dejo ahí porque no afecta las consultas, todas las consultas que mandemos por POSTMAN las 
 "atrapa" o gestiona el app.use de arriba 
 */
+
+
+
+app.get("/productos", async(req, res) =>{
+    try {
+        const newTodo = await pool.query (
+           "select * from pruebaUsuario as P",
+        );
+        res.json( newTodo.rows);
+        console.log(newTodo.rows);
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
+app.use("/productos",  productosRouter)
+
 
 app.post("/todos", async(req, res) =>{
     try {

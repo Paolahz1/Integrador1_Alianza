@@ -15,3 +15,4 @@ con la configuración proporcionada y
 se exporta esa instancia. */
 
 module.exports = pool;
+
