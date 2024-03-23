@@ -7,8 +7,8 @@ router
     .get("/existe", usuariosController.getUsurioExiste)
     .post("/registro",usuariosController.registrarUsuario)
     .post("/login", usuariosController.autenticarUsuario)
-
-    module.exports = router;
-
-
     
+    .get("/proyectos", usuariosController.getProyectosAsociados)
+    .get("/allPagos", usuariosController.getTodosPagosAsociados)
+    
+module.exports = router;

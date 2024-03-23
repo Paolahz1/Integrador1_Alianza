@@ -2,8 +2,8 @@ const sqlServicios= require ("../services/usuarios.services");
 
 exports.deletUser = async (req, res) =>
 {
-    const {identificacion} = req.body;
-    const resDelete  = await sqlServicios.serviceEliminarUsuario(identificacion); 
+    const {nombre_usuario} = req.body;
+    const resDelete  = await sqlServicios.serviceEliminarUsuario(nombre_usuario); 
     console.log("respuesta en controller usuario", resDelete);
     if (!resDelete){
     return res.status(404).json("No se ha podido eliminar el usuario");
@@ -13,6 +13,7 @@ exports.deletUser = async (req, res) =>
 
 exports.getUsurioExiste= async (req, res) =>
 {
+    const {identificacion} = req.body;
     const resultado  = await sqlServicios.serviceUsuarioExiste(identificacion); 
     if (!resultado){
         return res.status(404).json("No se ha encontrado el usuario");
@@ -39,7 +40,7 @@ exports.registrarUsuario= async (req, res) =>
 
 exports.autenticarUsuario= async (req, res) =>
 {
-    const {username,password} = req.body;
+    const {username, password} = req.body;
     const resultado  = await sqlServicios.serviceAutenticarUsuario(username, password);
     
     console.log ("Respuesta en usuarios.controller", resultado);
@@ -57,3 +58,42 @@ exports.autenticarUsuario= async (req, res) =>
         res.status(200).json({message: "Usuario no encontrado", data: resultado})
     }
 }
+
+//PROBAR LOS SIGUIENTES
+
+exports.getProyectosAsociados= async (req, res) =>
+{
+    const {nombre_usuario} = req.body;
+    try {
+        const resultado  = await sqlServicios.serviceProyectosAsociados(nombre_usuario); 
+        if (!resultado || resultado.length === 0) {
+            return res.status(404).json({ error: 'No se encontraron empresas' });
+        }
+
+        res.status(200).json({ resultado });
+    } catch (error) {
+        console.error('Error al obtener empresas:', error);
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+
+}
+
+exports.getTodosPagosAsociados= async (req, res) =>
+{
+    const {nombre_usuario}= req.body;
+    try {
+        const resultado  = await sqlServicios.serviceAllPagosAsociados(nombre_usuario); 
+        if (!resultado || resultado.length === 0) {
+            return res.status(404).json({ error: 'No se encontraron empresas' });
+        }
+
+        res.status(200).json({ resultado });
+    } catch (error) {
+        console.error('Error al obtener empresas:', error);
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+
+}
+
+
+

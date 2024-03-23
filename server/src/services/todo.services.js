@@ -1,7 +1,6 @@
 const pool = require ("../providers/db"); 
 
 async function updateTodos(description) {
-
     try {
         const newTodo = await pool.query (
             "INSERT INTO todo (description) VALUES ($1) RETURNING *",
