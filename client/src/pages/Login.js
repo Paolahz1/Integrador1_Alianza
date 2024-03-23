@@ -9,6 +9,7 @@ import {
     MDBCardBody
 }
 from 'mdb-react-ui-kit';
+const imagen = require('../img/logotipo.png');
 
 
 const Login = () => {
@@ -54,8 +55,8 @@ return (
 
         <MDBRow>
 
-        <MDBCol col='10' md='6'>
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
+        <MDBCol col='10' md='6' className="text-center"ñ>
+            <img src= {imagen} className="img-fluid" alt="image logo" />
         </MDBCol>
 
         <MDBCol md='5'>
