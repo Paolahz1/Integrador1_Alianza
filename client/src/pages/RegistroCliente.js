@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ModalComponent from "../components/Modal";
-import { MDBModalBody } from 'mdb-react-ui-kit';
 
 import {
     MDBContainer,
@@ -11,10 +10,7 @@ import {
     MDBCardBody,
     MDBCard,
     MDBCheckbox,
-    MDBBtn
 } from 'mdb-react-ui-kit';
-
-
 
 const RegistroCliente = () => {
     
@@ -31,12 +27,8 @@ const RegistroCliente = () => {
         tipo_usuario: 'cliente',
         telefono : '',
     });
-
-    /* 
-    Al usar ...formData, aseguras que mantienes los valores existentes
-    y solo actualizas el campo específico que cambió:
-    */
-    const handleChange = (e) => {
+    
+const handleChange = (e) => {
         const { name, value } = e.target;
         const trimmedValue = value.trim(); // Eliminar espacios al principio y al final
     
@@ -56,12 +48,9 @@ const RegistroCliente = () => {
             });
         }
     };
-    /*  Este controlador se activa cuando el usuario envía
-    el formulario, ya sea al presionar un botón de envío 
-    dentro del formulario o al presionar la tecla "Enter" 
-    */
-    const onSubmitForm = async (e) => {
 
+    // Este controlador se activa cuando el usuario envíael formulario
+const onSubmitForm = async (e) => {
     e.preventDefault();
 
     try {
@@ -147,18 +136,6 @@ const RegistroCliente = () => {
                 </form>
             </MDBCardBody>
         </MDBCard>
-        {/*mostrarModal && (
-        <ModalComponent>
-            <MDBModalBody>
-                <p>No se pudo completar la operación.</p>
-            </MDBModalBody>
-            <MDBBtn onClick={() => setMostrarModal(false)}>Cerrar</MDBBtn>
-        </ModalComponent>
-        )*/}
-        /*
-        Aquí le envío los parametros, pero no los ejecuto como tal,
-        de eso se encarga el componente internamente
-         */
 
         {mostrarModal && (
             <ModalComponent 
