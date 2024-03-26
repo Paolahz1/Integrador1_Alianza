@@ -101,95 +101,91 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
  
 ## Empresas API
 
-
 1. Obtener todas las empresas en la BD:
-   
    La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/empresas/getAll
+   *No requiere hacer envío de ningún dato*
+   - Petición exitosa
+     <details><summary><b>Respuesta JSON del servidor</b></summary>
 
-   *No requiere hacer envío de ningun dato*
+     ```diff
+     {
+         "empresas": [
+             {
+                 "identificador": 1,
+                 "descripcion": "Empresa 1-Descripción",
+                 "url": "http://empresa1.com",
+                 "razon_social": "Empresa 1"
+             },
+             {
+                 "identificador": 2,
+                 "descripcion": null,
+                 "url": "http://empresa2.com",
+                 "razon_social": "Empresa 2"
+             }
+         ]
+     }
+     ```
+     </details>
 
-- Petición exitosa
-		<details> <summary><b>Respuesta JSON del server</b></summary>
+3. Eliminar una empresa de la BD
+
+   URL: ../empresas/delete/
+
+   *Requiere hacer envío del id_empresa*
+
+   Se manejan los siguientes casos:
+
+	- Petición exitosa
+	  <details><summary><b>Ejemplo de envío al servidor</b></summary>
+	
+	     ```diff
+	     {
+	         "id_empresa": "2"
+	     }
+	     ```
+	     </details>
+	
+	- Petición fallida, empresa no encontrada
+		<details><summary><b>Ejemplo de envío al server</b></summary>
+		
 		```diff
 		{
-		    "empresas": [
-			{
-			    "identificador": 1,
-			    "descripcion": "Empresa 1-Descripci¢n",
-			    "url": "http://empresa1.com",
-			    "razon_social": "Empresa 1"
-			},
-			{
-			    "identificador": 2,
-			    "descripcion": null,
-			    "url": "http://empresa2.com",
-			    "razon_social": "Empresa 2"
-			}
-		    ]
+		"id_empresa": "5"
 		}
 		```
 		</details>
-
-2. Eliminar una empresa de la BD 
-
-	URL: .. /empresas/delete/ 
-	
-	*Requiere hacer envío del id_empresa*
-
-	Se manejan los siguientes casos:
-
- - Petición exitosa
-		<details><summary><b>Ejemplo de envío al server</b></summary>
-		```diff
-			{
-			    "id_empresa": "2"
-			}
-   		```
-		</details>
+		
 		<details><summary><b>Respuesta JSON del server</b></summary>
+		
 		```diff
-			{
-			    "message": "Empresa eliminada",
-			    "data": 1
-			}
+		{
+		    "id_empresa": "5"
+		}
 		```
 		</details>
-
- - Petición fallida, empresa no encontrada
+	
+	- Petición fallida, error en el envío de los datos
 		<details><summary><b>Ejemplo de envío al server</b></summary>
+			 
 		```diff
-			{
-			    "id_empresa": "5"
-			}
-			```
+		{
+		    "id_empresa": "jakskajskjasa"
+		}
+		```
+			
 		</details>
+		
 		<details><summary><b>Respuesta JSON del server</b></summary>
+			
 		```diff
-			{
-			    "id_empresa": "5"
-			}
+		{
+		    "message": "No se ha podido eliminar la empresa",
+		    "data": -1
+		}
 		```
 		</details>
-
- - Petición fallida, error en el envío de los datos
-	<details><summary><b>Ejemplo de envío al server</b></summary>
-	```diff
-	{
-	    "id_empresa": "jakskajskjasa"
-	}
-	```
 	
-	</details>
-	<details><summary><b>Respuesta JSON del server</b></summary>
-	```diff
-	{
-	    "message": "No se ha podido eliminar la empresa",
-	    "data": -1
-	}
-	```
-	</details>
-
-
+	
 
 
 <!-- ROADMAP -->
