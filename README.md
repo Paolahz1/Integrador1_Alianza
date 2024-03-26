@@ -5,12 +5,18 @@
 
 <a name="readme-top"></a>
 
+
+## 🚩 Table of Contents
+
+- [Creación de tablas](#Creación-de-tablas-)
+- [Tablas de Formulario](#Tablas-de-Formulario)
+
 ## Creación de tablas ⭐️
 
 
 
 
-### Tablas de Formulario
+## Tablas de Formulario
 
 
 La utilización de múltiples tablas en una base de datos para un formulario de preguntas sigue las mejores prácticas de diseño de bases de datos relacionales. 
