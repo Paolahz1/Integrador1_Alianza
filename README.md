@@ -9,14 +9,16 @@
 ## 🚩 Table of Contents
 
 - [Creación de tablas](#Creación-de-tablas-)
-- [Tablas de Formulario](#Tablas-de-Formulario)
+  - [Tablas de Formulario](#Tablas-de-Formulario)
+- [Documentación enviós API](#Documentación-de-envíos-API-)
+  - [Envío usuarios](#Usuarios-API)
 
 ## Creación de tablas ⭐️
 
 
 
 
-## Tablas de Formulario
+### Tablas de Formulario
 
 
 La utilización de múltiples tablas en una base de datos para un formulario de preguntas sigue las mejores prácticas de diseño de bases de datos relacionales. 
@@ -92,12 +94,110 @@ CREATE TABLE IF NOT EXISTS detalle_pedidos (
 );
 ```
 
+## Documentación de envíos API 🚀
+El frontend ha de recibir la información conforme se presenta a continuación. Es desición del desarrollador determinar cómo hará uso de estas respuestas. 
+ 
+Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http://localhost:5000/aquí-la-continuación-del-url 
+ 
+## Empresas API
+
+
+1. Obtener todas las empresas en la BD:
+   
+   La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/empresas/getAll
+
+   *No requiere hacer envío de ningun dato*
+
+- Petición exitosa
+		<details> <summary><b>Respuesta JSON del server</b></summary>
+		```
+		{
+		    "empresas": [
+			{
+			    "identificador": 1,
+			    "descripcion": "Empresa 1-Descripci¢n",
+			    "url": "http://empresa1.com",
+			    "razon_social": "Empresa 1"
+			},
+			{
+			    "identificador": 2,
+			    "descripcion": null,
+			    "url": "http://empresa2.com",
+			    "razon_social": "Empresa 2"
+			}
+		    ]
+		}
+		```
+		</details>
+
+2. Eliminar una empresa de la BD 
+
+	URL: .. /empresas/delete/ 
+	
+	*Requiere hacer envío del id_empresa*
+
+	Se manejan los siguientes casos:
+
+ - Petición exitosa
+		<details><summary><b>Ejemplo de envío al server</b></summary>
+		```sh
+			{
+			    "id_empresa": "2"
+			}
+   		```
+		</details>
+		<details><summary><b>Respuesta JSON del server</b></summary>
+		```sh
+			{
+			    "message": "Empresa eliminada",
+			    "data": 1
+			}
+		```
+		</details>
+
+ - Petición fallida, empresa no encontrada
+		<details><summary><b>Ejemplo de envío al server</b></summary>
+		```sh
+			{
+			    "id_empresa": "5"
+			}
+			```
+		</details>
+		<details><summary><b>Respuesta JSON del server</b></summary>
+		```sh
+			{
+			    "id_empresa": "5"
+			}
+		```
+		</details>
+
+ - Petición fallida, error en el envío de los datos
+	<details><summary><b>Ejemplo de envío al server</b></summary>
+	```sh
+	{
+	    "id_empresa": "jakskajskjasa"
+	}
+	```
+	
+	</details>
+	<details><summary><b>Respuesta JSON del server</b></summary>
+	```sh
+	{
+	    "message": "No se ha podido eliminar la empresa",
+	    "data": -1
+	}
+	```
+	</details>
+
+
+
+
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] Crear tablas para el formulario
 - [x] Crear tablas para los pedidos
-- [ ] Add Additional Templates w/ Examples
+- [ ] Probar y documentar los métodos para los usuarios
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
 
