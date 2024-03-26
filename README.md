@@ -136,7 +136,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
    Se manejan los siguientes casos:
 
 	- Petición exitosa
-	  <details><summary><b>Ejemplo de envío al servidor</b></summary>
+	  <details><summary><b>Ejemplo envío al server</b></summary>
 	
 	     ```diff
 	     {
@@ -146,7 +146,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 	     </details>
 	
 	- Petición fallida, empresa no encontrada
-		<details><summary><b>Ejemplo de envío al server</b></summary>
+		<details><summary><b>Ejemplo envío al server</b></summary>
 		
 		```diff
 		{
@@ -165,7 +165,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 		</details>
 	
 	- Petición fallida, error en el envío de los datos
-		<details><summary><b>Ejemplo de envío al server</b></summary>
+		<details><summary><b>Ejemplo envío al server</b></summary>
 			 
 		```diff
 		{
@@ -193,21 +193,20 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
    *Requiere hacer envío de id_empresa, descripcion, url, nombre*
 
    Se manejan los siguientes casos:
+   - Petición exitosa
+		<details><summary><b>Ejemplo envío al server</b></summary>
 
-	- Petición exitosa
-	  <details><summary><b>Ejemplo de envío al servidor</b></summary>
-	
-	     ```diff
-	     {
-		    "id_empresa":"2",
+		```diff
+		{
+		    "id_empresa":"1",
 		    "descripcion":"Empresa bonita",
 		    "url":"'www.empresaa.com",
 		    "nombre":"Methalica"
-             }
-	     ```
-	  </details>
-   
-	  <details><summary><b>Respuesta JSON del server</b></summary>
+		}
+		```
+		</details>
+
+		<details><summary><b>Respuesta JSON del server</b></summary>
 			
 		```diff
 		{
@@ -215,8 +214,31 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 		    "data": 1
 		}
 		```
-            </details>
+		</details>
+     
+   - Petición fallida, una empresa existente no se puede volver a crear  
+		<details><summary><b>Ejemplo envío al server</b></summary>
 
+		```diff
+		{
+		    "id_empresa":"1",
+		    "descripcion":"Empresa bonita x2",
+		    "url":"'www.empresaa.com ",
+		    "nombre":"Methalica"
+		}
+		```
+		</details>
+
+		<details><summary><b>Respuesta JSON del server</b></summary>
+			
+		```diff
+		{
+		    "message": "La empresa ya existe",
+		    "data": 0
+		}
+		```
+		</details>
+	
 <!-- ROADMAP -->
 ## Roadmap
 
