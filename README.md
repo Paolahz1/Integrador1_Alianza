@@ -127,7 +127,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
      ```
      </details>
 
-3. Eliminar una empresa de la BD
+2. Eliminar una empresa de la BD
 
    URL: ../empresas/delete/
 
@@ -185,8 +185,37 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 		```
 		</details>
 	
-	
 
+3. Crear una empresa de la BD
+
+   URL: ../empresas/create/
+
+   *Requiere hacer envío de id_empresa, descripcion, url, nombre*
+
+   Se manejan los siguientes casos:
+
+	- Petición exitosa
+	  <details><summary><b>Ejemplo de envío al servidor</b></summary>
+	
+	     ```diff
+	     {
+		    "id_empresa":"2",
+		    "descripcion":"Empresa bonita",
+		    "url":"'www.empresaa.com",
+		    "nombre":"Methalica"
+             }
+	     ```
+	  </details>
+   
+	  <details><summary><b>Respuesta JSON del server</b></summary>
+			
+		```diff
+		{
+		    "message": "Empresa creada",
+		    "data": 1
+		}
+		```
+            </details>
 
 <!-- ROADMAP -->
 ## Roadmap
