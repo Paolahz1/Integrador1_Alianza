@@ -5,7 +5,7 @@
 
 <a name="readme-top"></a>
 
-## Creación de tablas
+## Creación de tablas ⭐️
 
 
 
@@ -95,5 +95,3 @@ CREATE TABLE IF NOT EXISTS detalle_pedidos (
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
 
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
