@@ -10,6 +10,7 @@
 
 - [Creación de tablas](#Creación-de-tablas-) 
   - [Tablas de Formulario](#Tablas-de-Formulario)
+  - [Tablas de Pedidos](#Tablas-pedido)
 - [Documentación enviós API](#Documentación-de-envíos-API-)
   - [Envío usuarios](#Usuarios-API)
 
