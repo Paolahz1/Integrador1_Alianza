@@ -110,7 +110,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
 - Petición exitosa
 		<details> <summary><b>Respuesta JSON del server</b></summary>
-		```
+		```diff
 		{
 		    "empresas": [
 			{
@@ -140,14 +140,14 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
  - Petición exitosa
 		<details><summary><b>Ejemplo de envío al server</b></summary>
-		```sh
+		```diff
 			{
 			    "id_empresa": "2"
 			}
    		```
 		</details>
 		<details><summary><b>Respuesta JSON del server</b></summary>
-		```sh
+		```diff
 			{
 			    "message": "Empresa eliminada",
 			    "data": 1
@@ -157,14 +157,14 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
  - Petición fallida, empresa no encontrada
 		<details><summary><b>Ejemplo de envío al server</b></summary>
-		```sh
+		```diff
 			{
 			    "id_empresa": "5"
 			}
 			```
 		</details>
 		<details><summary><b>Respuesta JSON del server</b></summary>
-		```sh
+		```diff
 			{
 			    "id_empresa": "5"
 			}
@@ -173,7 +173,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
  - Petición fallida, error en el envío de los datos
 	<details><summary><b>Ejemplo de envío al server</b></summary>
-	```sh
+	```diff
 	{
 	    "id_empresa": "jakskajskjasa"
 	}
@@ -181,7 +181,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 	
 	</details>
 	<details><summary><b>Respuesta JSON del server</b></summary>
-	```sh
+	```diff
 	{
 	    "message": "No se ha podido eliminar la empresa",
 	    "data": -1
