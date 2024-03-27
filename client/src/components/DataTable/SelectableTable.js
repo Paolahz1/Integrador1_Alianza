@@ -27,8 +27,6 @@ export default function  SelectableTable({users}) {
         description: 'muy bonita' }
     ]
 
-
-
     const [records, setRecords] = useState([]);
     const [inputValues, setInputValue] = useState('');
 
