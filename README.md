@@ -196,7 +196,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
    URL: ../empresas/create/
 
-   Método de tipo: PUT
+   Método de tipo: POST
    
    *Requiere hacer envío de id_empresa, descripcion, url, nombre*
 
@@ -251,11 +251,24 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
    URL: ../empresas/update/
 
+
+   Método de tipo: PUT
+   
    *Requiere hacer envío de id_empresa, url*
 
    Siga los ejemplos de envío anteriores, recuerde utilizar los mismos nombres de atributos que existen en la base de datos.
 
-    
+   La misma idea para la **respuesta del server:**
+   <details><summary><b>Ejemplo envío al server</b></summary>
+        ```dig
+	if (respuesta == (null||undefined)){
+        + return res.status(404).json({message: "No se ha podido actualizar la 			empresa", data: -1} );
+   	 } 
+    	else {
+        + res.status(200).json({message:"Empresa actualizada", data: 1});
+  	}
+     ```
+     </details>
 <!-- ROADMAP -->
 ## Roadmap
 
