@@ -53,8 +53,9 @@ const handleChange = (e) => {
 const onSubmitForm = async (e) => {
     e.preventDefault();
 
+    console.log("AQUÍ LA RTA: ", formData);
     try {
-        const response = await fetch('http://localhost:5000/usuarios/registro', {
+        const response = await fetch('http://localhost:5000/usuarios/registro/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
