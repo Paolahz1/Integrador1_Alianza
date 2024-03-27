@@ -104,6 +104,9 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
 1. Obtener todas las empresas en la BD:
    La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/empresas/getAll
+
+   Método de tipo: GET
+
    *No requiere hacer envío de ningún dato*
    - Petición exitosa
      <details><summary><b>Respuesta JSON del servidor</b></summary>
@@ -132,6 +135,8 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
    URL: ../empresas/delete/
 
+   Método de tipo: DELETE
+   
    *Requiere hacer envío del id_empresa*
 
    Se manejan los siguientes casos:
@@ -191,6 +196,8 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
    URL: ../empresas/create/
 
+   Método de tipo: PUT
+   
    *Requiere hacer envío de id_empresa, descripcion, url, nombre*
 
    Se manejan los siguientes casos:
@@ -239,7 +246,16 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 		}
 		```
 		</details>
-	
+  
+4. Actualizar una empresa de la BD
+
+   URL: ../empresas/update/
+
+   *Requiere hacer envío de id_empresa, url*
+
+   Siga los ejemplos de envío anteriores, recuerde utilizar los mismos nombres de atributos que existen en la base de datos.
+
+    
 <!-- ROADMAP -->
 ## Roadmap
 
