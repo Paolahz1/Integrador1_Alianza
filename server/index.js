@@ -18,8 +18,9 @@ app.use ("/productos", productosRouter);
 app.use ("/empresas", empresasRouter );
 
 // http://localhost:5000/productos/
+const PORT = process.env.PORT || 5000;
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log("server has started on port 5000")
 }); 
 
