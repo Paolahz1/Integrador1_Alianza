@@ -263,7 +263,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
         
         ```diff
 	if (respuesta == (null||undefined)){
-        + return res.status(404).json({message: "No se ha podido actualizar la 			empresa", data: -1} );
+        + return res.status(404).json({message: "No se ha podido actualizar la 	empresa", data: -1} );
    	 } 
     	else {
         + res.status(200).json({message:"Empresa actualizada", data: 1});
