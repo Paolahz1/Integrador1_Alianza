@@ -260,7 +260,8 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
    La misma idea para la **respuesta del server:**
    <details><summary><b>Ejemplo envío al server</b></summary>
-        ```dig
+        
+        ```diff
 	if (respuesta == (null||undefined)){
         + return res.status(404).json({message: "No se ha podido actualizar la 			empresa", data: -1} );
    	 } 
