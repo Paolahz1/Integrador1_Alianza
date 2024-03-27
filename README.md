@@ -103,7 +103,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 ## Empresas API
 
 1. Obtener todas las empresas en la BD:
-   La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/empresas/getAll
+   La URL completa, para esta solicitud HTTP específica: http://localhost:5000/empresas/getAll
 
    Método de tipo: GET
 
@@ -113,7 +113,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
      ```diff
      {
-         "empresas": [
+         [
              {
                  "identificador": 1,
                  "descripcion": "Empresa 1-Descripción",
@@ -276,7 +276,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 
 
 1. Obtener todos los productos en la BD:
-   La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/productos/getAll
+   La URL completa, para esta solicitud HTTP específica: http://localhost:5000/productos/getAll
 
    Método de tipo: GET
 
@@ -285,26 +285,67 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
      <details><summary><b>Respuesta JSON del servidor</b></summary>
 
      ```diff
-     {
-         "empresas": [
-             {
-                 "identificador": 1,
-                 "descripcion": "Empresa 1-Descripción",
-                 "url": "http://empresa1.com",
-                 "razon_social": "Empresa 1"
-             },
-             {
-                 "identificador": 2,
-                 "descripcion": null,
-                 "url": "http://empresa2.com",
-                 "razon_social": "Empresa 2"
-             }
-         ]
-     }
+     
+     ```
+     </details>
+     
+2. Obtener todos los productos en la BD:
+  
+   Método de tipo: GET
+
+   *Requiere hacer envío del id_empresa,* de la cual se quieren obtener los productos. Aquí ese parámetro, va directamente en el url
+
+   Ejemplo de URL completa para esta solicitud HTTP específica: http://localhost:5000/productos/1
+
+   - Petición exitosa
+
+     **Ejemplo url correcto:** http://localhost:5000/productos/get/1
+
+     <details><summary><b>Respuesta JSON del servidor</b></summary>
+
+     ```diff
+     [
+	    {
+	        "id_producto": 1,
+	        "empresas_id_empresa": 1,
+	        "nombre": "Producto 1",
+	        "unidad": "Unidad 1",
+	        "costo": "10.50",
+	        "descripcion_producto": "Descripci¢n del Producto 1"
+	    },
+	    {
+	        "id_producto": 2,
+	        "empresas_id_empresa": 1,
+	        "nombre": "Producto 2",
+	        "unidad": "Unidad 2",
+	        "costo": "15.75",
+	        "descripcion_producto": "Descripci¢n del Producto 2"
+	    }
+     ]
      ```
      </details>
 
+
+   - Petición fallida, el url es incorrecto
+
+     **Ejemplo url incorrecto:** http://localhost:5000/productos/get/:1
+
+     <details><summary><b>Respuesta JSON del servidor</b></summary>
+
+     ```diff
+     {
+	    "message": "No se encontraron productos"
+     }
+     ```
+     </details>
      
+	git: 
+	
+	
+	
+	
+	
+
 <!-- ROADMAP -->
 ## Roadmap
 
