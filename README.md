@@ -16,7 +16,7 @@
 
 ## Creación de tablas ⭐️
 
-
+A continuación se presentan únicamente las tablas que han generado conflicto, el contenido completo se encuentra dentro del archivo server/database.sql
 
 
 ### Tablas de Formulario
@@ -272,6 +272,37 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 	```
 	</details>
   
+## Productos API
+
+
+1. Obtener todos los productos en la BD:
+   La URL completa, para esta solicitud HTTP específica sería la siguiente: http://localhost:5000/productos/getAll
+
+   Método de tipo: GET
+
+   *No requiere hacer envío de ningún dato*
+   - Petición exitosa
+     <details><summary><b>Respuesta JSON del servidor</b></summary>
+
+     ```diff
+     {
+         "empresas": [
+             {
+                 "identificador": 1,
+                 "descripcion": "Empresa 1-Descripción",
+                 "url": "http://empresa1.com",
+                 "razon_social": "Empresa 1"
+             },
+             {
+                 "identificador": 2,
+                 "descripcion": null,
+                 "url": "http://empresa2.com",
+                 "razon_social": "Empresa 2"
+             }
+         ]
+     }
+     ```
+     </details>
 
      
 <!-- ROADMAP -->
@@ -280,6 +311,7 @@ Ejemplo de cómo se forma el URL al cuál se le hace el fetch en localhost: http
 - [x] Crear tablas para el formulario
 - [x] Crear tablas para los pedidos
 - [ ] Probar y documentar los métodos para los usuarios
+- [ ] Implementar el método para ingresar productos a la BD
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
 
