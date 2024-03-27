@@ -4,6 +4,7 @@ const router = Router();
 
 router 
     .delete("/delete", empresasController.deleteEmpresa)
-    .get("/get/all", empresasController.getEmpresas)
-
+    .get("/getAll", empresasController.getEmpresas)
+    .post("/create", empresasController.postEmpresa)
+    .put("/update", empresasController.updateEmpresa)
 module.exports = router; 

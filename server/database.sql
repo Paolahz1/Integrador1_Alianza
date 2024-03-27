@@ -2,12 +2,11 @@ create database sede_principal;
 use sede_principal;
 
 CREATE TABLE IF NOT EXISTS empresas (
-    id_empresa INT PRIMARY KEY,
+    id_empresa INT PRIMARY KEY NOT NULL,
 	descripcion VARCHAR(200),
 	url VARCHAR(45),
 	nombre VARCHAR(45) NOT NULL
 );
-
 
 CREATE TABLE IF NOT EXISTS usuarios (
 	id_usuario SERIAL PRIMARY KEY,
@@ -70,11 +69,11 @@ CREATE TABLE IF NOT EXISTS documentos (
 
 CREATE TABLE IF NOT EXISTS productos (
 	codigo SERIAL NOT NULL,
-	nombre VARCHAR(50) NOT NULL,
+	nombre VARCHAR(70) NOT NULL,
 	id_producto INT NOT NULL,
-	unidad VARCHAR(45),
+	unidad VARCHAR(70),
 	costo NUMERIC(10, 2), -- NUMERIC(10, 2) indica 10 dígitos en total, 2 de los cuales son decimales
-	descripcion_producto VARCHAR(45),
+	descripcion_producto VARCHAR(200),
 	empresas_id_empresa INT,
 	PRIMARY KEY (codigo),
 	FOREIGN KEY (empresas_id_empresa) REFERENCES empresas (id_empresa) ON DELETE SET NULL,
@@ -85,7 +84,8 @@ CREATE TABLE IF NOT EXISTS productos (
 CREATE TABLE IF NOT EXISTS pedidos (
     id_pedido SERIAL PRIMARY KEY,
     fecha_pedido DATE NOT NULL,
-    estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente' -- Puedes agregar más estados según tu lógica de negocio
+    estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente'
+
 );
 
 CREATE TABLE IF NOT EXISTS detalle_pedidos (
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS detalle_pedidos (
 
 CREATE TABLE IF NOT EXISTS formularios (
     id_formulario SERIAL PRIMARY KEY,
-    fecha_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,s
 );
 
 CREATE TABLE IF NOT EXISTS preguntas (
